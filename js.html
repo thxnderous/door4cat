@@ -1,0 +1,96 @@
+<script>
+    $('#pageRegister').hide()
+  
+  
+    function openPageRegister(){
+      event.preventDefault()
+      $('#pageRegister').show()
+      $('#pageLogin').hide()
+    }
+  
+    function openPageLogin(){
+      event.preventDefault()
+      $('#pageRegister').hide()
+      $('#pageLogin').show()
+    }
+  
+    function submitRegister(obj){
+      event.preventDefault()
+      Swal.fire({title :'..Loading'})
+      Swal.showLoading()
+      google.script.run.withSuccessHandler(res).createUser(obj)
+    }
+  
+    function res(output){
+    Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Your work has been saved",
+    showConfirmButton: false,
+    timer: 1500
+  });
+  document.getElementById('formRegister').reset()
+    }
+  
+    function submitLogin(obj){
+      event.preventDefault()
+      Swal.fire({title :'..Loading'})
+      Swal.showLoading()
+      google.script.run.withSuccessHandler(response).checkLogin(obj)
+    }
+  
+    function response(output){
+      if(output !=null){
+    Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Login successful",
+    showConfirmButton: false,
+    timer: 1500
+  });
+  $('#formLogin')[0].reset()
+  localStorage.setItem('userLogin',JSON.stringify(output))
+  changePage('main')
+      }else{
+    Swal.fire({
+    position: "center",
+    icon: "error",
+    title: "Incorrect email or password",
+    showConfirmButton: false,
+    timer: 1500
+  });
+  $('#formLogin')[0].reset()
+      }
+    }
+//   <!-- เข้าหน้าเว็บ -->
+  var curPage,userData
+    function changePage(page){
+          Swal.fire({title :'..Waiting'})
+      Swal.showLoading()
+      curPage = page
+      google.script.run.withSuccessHandler(res=>{
+        document.open()
+        document.write(res)
+        document.close()
+      }).include(page)
+    }
+//   <!-- ออกจากระบบ -->
+    function logout(){
+      changePage('index')
+      localStorage.removeItem('userLogin')
+    }
+  
+  window.onload = ()=>{
+    userData = JSON.parse(localStorage.getItem('userLogin'))
+    if(curPage != 'main'){
+        if(userData != null){
+          changePage('main')
+        }
+    }
+    // $('#profileImage').attr("",)
+    $('#userNmae').html('Hello ,'+userData[1])
+  }
+  
+  
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

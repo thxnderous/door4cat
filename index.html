@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <?!= include('css') ?>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+     <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+
+                <!--login-->
+                <div class="container" id="pageLogin">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4 text-center">LOGIN</h3>
+                            <!-- <p class="text-muted mb-4">Create a login split page using Bootstrap 4.</p> -->
+                            <form id="formLogin" onsubmit="submitLogin(this)">
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">EMAIL</p>
+                                    <input id="email" name="email" type="email" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">PASSWORD</p>
+                                    <input id="password" name="password" type="password" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block text-Capitalize mb-2 rounded-pill shadow-sm w-100">Login</button>
+                                <div class="text-center d-flex justify-content-between mt-4"><p>Don’t have an account? <a href="#" class="font-italic text-muted" onclick="openPageRegister()"> 
+                                        <u>Register</u></a></p></div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+                <!--register-->
+                <div class="container" id="pageRegister">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4 text-center">REGISTER</h3>
+                            <form id="formRegister" onsubmit="submitRegister(this)">
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">NAME</p>
+                                    <input id="inputUser" name="inputUser" type="text" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">EMAIL</p>
+                                    <input id="inputEmail" name="inputEmail" type="email" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">PASSWORD</p>
+                                    <input id="inputPassword" name="inputPassword" type="password" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                </div>
+                                <div class="form-group mb-3">
+                                  <p class="text-muted mb-4">CONFIRM PASSWORD</p>
+                                    <input id="inputPasswordtrue" name="inputPasswordtrue" type="password" placeholder="" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                </div>
+                                <!-- <div class="custom-control custom-checkbox mb-3">
+                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary btn-block text-Capitalize mb-2 rounded-pill shadow-sm w-100">Create Account</button>
+                                <div class="text-center d-flex justify-content-between mt-4"><p>You have account? <a href="#" class="font-italic text-muted" onclick="openPageLogin()"> 
+                                      <u>Login</u></a></p></div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>
+
+
+
+
+<?!= include('js') ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
